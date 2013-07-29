@@ -36,7 +36,7 @@ stickfigure.setScale(0.2)
 ar = ARToolKit.make(base.cam, "./camera_para.dat", 1)
 
 #attach the model to a pattern so it updates the model's position relative to the camera each time we call analyze()
-ar.attachPattern("./4x4_48.patt", stickfigure)
+ar.attachPattern("./patt.hiro", stickfigure)
 
 #updating the models positions each frame. and play the appropriate animation.
 def updatePatterns(task):

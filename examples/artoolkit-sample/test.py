@@ -14,7 +14,7 @@ class AugmentedObject(DirectObject):
 		self.defaultScale = 0.2
 		self.scale = self.defaultScale
 		self.curModel = 0
-		self.models = ["panda", "seekerDir/seeker", "box", "zup-axis", "smiley", "teapot"]
+		self.models = ["panda", "box", "zup-axis", "smiley", "teapot"]
 		self.flipScreen = False
 
 		self.tex = OpenCVTexture()
