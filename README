@@ -1,0 +1,30 @@
+WARNING:
+Mayhem is under construction and is not anywhere near a release,
+if you want to browse code feel free to download or fork but please
+don't download thinking to get a working copy!
+
+Mayhem is an augmented reality platform designed to help visualize
+D20 based table top games (such as Dungeons and Dragons). It's goal
+is to provide an interactive replacement to standard visualization
+methods such as miniatures and whiteboards.
+
+Mayhem is completely open source and uses the GPLv2 License.
+
+Feature List (still to be finalized):
+
+- Technical Capabilities:
+  - Client-server configuration, with server being managed by DM
+  - server will have option to run from PC or Android tablet
+  - client will have option to run from PC or Android phone/tablet
+  - platforms: Linux -> Windows -> Mac
+
+- Visualization:
+  - scalable terrain
+  - fog-of-war based off of character's vision
+  - movement option overlay based on character's speed
+  - pose determined by character's current health
+
+
+Future Addons (always changing with project):
+
+- AI based monsters to aid DM during large battles

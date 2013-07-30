@@ -16,6 +16,7 @@ class AugmentedObject(DirectObject):
 		self.curModel = 0
 		self.models = ["panda", "box", "zup-axis", "smiley", "teapot"]
 		self.flipScreen = False
+		self.posOffset = [0.0, 0.0, 0.0]
 
 		self.tex = OpenCVTexture()
 		self.tex.setTexturesPower2(0)
@@ -52,6 +53,11 @@ class AugmentedObject(DirectObject):
 	  self.ar.analyze(self.tex, not self.flipScreen)
 	  #print inspect.getmembers(self.ar)
 	  #sys.exit(0)
+	  tmpPos = self.object.getPos()
+	  for i in range(0, 3):
+	  	tmpPos[i] += self.posOffset[i]
+	  
+	  self.object.setPos(tmpPos)
 	  return Task.cont
   
 	def increaseScale(self):
@@ -83,6 +89,24 @@ class AugmentedObject(DirectObject):
 			self.curModel -= 1
 			
 		self.setupPattern(self.models[self.curModel])
+		
+	def translateLeft(self):
+		self.posOffset[0] -= 0.1
+		
+	def translateRight(self):
+		self.posOffset[0] += 0.1
+		
+	def translateUp(self):
+		self.posOffset[2] += 0.1
+		
+	def translateDown(self):
+		self.posOffset[2] -= 0.1
+		
+	def translateForward(self):
+		self.posOffset[1] -= 0.1
+		
+	def translateBack(self):
+		self.posOffset[1] += 0.1
   	
   	def start(self):
   		self.setupPattern(self.models[self.curModel])
@@ -90,6 +114,12 @@ class AugmentedObject(DirectObject):
 		self.accept('arrow_right', self.increaseScale)
 		self.accept('arrow_down', self.decreaseModel)
 		self.accept('arrow_up', self.increaseModel)
+		self.accept('a', self.translateLeft)
+		self.accept('d', self.translateRight)
+		self.accept('w', self.translateUp)
+		self.accept('s', self.translateDown)
+		self.accept('q', self.translateBack)
+		self.accept('e', self.translateForward)
 		
 		sleep(1) #some webcams are quite slow to start up so we add some safety
 		taskMgr.add(self.updatePatterns, "update-patterns",-100)
