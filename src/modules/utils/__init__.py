@@ -1,0 +1,1 @@
+from onquit import onquit

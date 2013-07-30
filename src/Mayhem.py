@@ -1,13 +1,16 @@
 import sys
 sys.path.append('./modules/')
 
-import importlib
 import shelve
 from time import sleep
-from Jeraldamo import onquit
+
+# Imports from modules directory
+import importlib
+from utils import onquit
 
 # Panda3D Imports
 from pandac.PandaModules import *
+from panda3d.core import NodePath
 from direct.actor import Actor
 from direct.showbase.DirectObject import DirectObject
 from direct.directbase import DirectStart
@@ -25,6 +28,7 @@ class Character(Actor.Actor):
 	def __init__(self, character, characterPath, markerPath, nodeParent, arInstance):
 		self.charName = character
 		
+		# Make sure that characterPath is only added to sys.path once
 		if characterPath not in sys.path:
 			sys.path.append(characterPath)
 			
@@ -32,7 +36,6 @@ class Character(Actor.Actor):
 			characterPath += '/'
 		
 		self.characterPath = characterPath + character + '/'
-			
 		self.mod = importlib.import_module(character)
 		
 		tmpModel = self.characterPath + self.mod.model
@@ -79,6 +82,8 @@ class World(DirectObject):
 		
 	def updatePatterns(self, task):
 	  self.ar.analyze(self.tex, not self.flipScreen)
+	  
+	  # Change character pose based on HP
 	  for char in self.charManager.characters.values():
 	  	char.refreshCharSheet()
 	  	if int(char.charSheet['curHP']) > int(char.charSheet['totalHP']) / 2:
