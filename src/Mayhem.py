@@ -1,7 +1,9 @@
+import sys
+sys.path.append('./modules/')
+
 import importlib
 import shelve
 from time import sleep
-import sys
 from Jeraldamo import onquit
 
 # Panda3D Imports
