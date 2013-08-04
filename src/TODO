@@ -1,0 +1,4 @@
+ - Close in a clean manner... currently there is a "quit" function in the CLI
+   but it does not completely close, still have to ctrl-c out.
+
+ - Test with multiple miniatures, only tested with one.
