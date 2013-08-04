@@ -44,6 +44,21 @@ class CLI(cmd.Cmd):
         self.thread._Thread__stop()
         taskMgr.remove("update-patterns")
 
+class Tile():
+    def __init__(self, coords):
+        self.coords = coords
+
+class Grid():
+    def __init__(self, xLen, yLen):
+        self.xLen = xLen
+        self.yLen = yLen
+        self.grid = []
+        for i in xrange(xLen):
+            tmpRow = []
+            for j in xrange(yLen):
+                tmpRow.append(Tile((i, j)))
+            self.grid.append(tmpRow)
+
 class MiniatureManager():
     """Manages all miniatures in world"""
 
@@ -57,13 +72,26 @@ class MiniatureManager():
 class Miniature(NodePath):
     """Base class, holds character and all overlays"""
 
-    def __init__(self, characterName, characterPath, markerPath, nodeParent, arInstance):
+    def __init__(self, characterName, characterPath, markerPath, nodeParent, world, arInstance):
         NodePath.__init__(self, characterName)
         self.character = Character(characterName, characterPath, markerPath, self, arInstance)
         self.overlays = {'vision': (None, False),
                         'movement': (None, False)}
         self.reparentTo(nodeParent)
         arInstance.attachPattern(markerPath, self)
+
+        self.location = (0,0)
+    
+    def getPossibleMoves(self):
+        possibleMoves = []
+        speed = self.character.charSheet['speed']
+        squares = speed / world.grid.gridSize
+        for row in world.grid.grid:
+            for tile in row:
+                manhattan = (tile.coords[0] - self.location[0]) + (tile.coords[1] - self.location[1])
+                if manhattan >= squares:
+                    possibleMoves.append(tile)
+        return possibleMoves
 
 
 class Character(Actor.Actor):
@@ -105,6 +133,7 @@ class World(DirectObject):
     def __init__(self):
         self.miniManager = MiniatureManager()
         self.cli = CLI(self)
+        self.grid = Grid(10, 10)
 
         self.flipScreen = False
 

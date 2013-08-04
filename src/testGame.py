@@ -4,7 +4,8 @@ world = World()
 world.miniManager.addMiniature(Miniature('Seebo', 
                                 './data/characters/', 
                                 './data/markers/patt.hiro', 
-                                render, 
+                                render,
+                                world,
                                 world.ar))
                                           
 
