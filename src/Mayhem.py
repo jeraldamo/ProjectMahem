@@ -24,6 +24,8 @@ from direct.directbase import DirectStart
 from direct.task import Task
 
 class CLI(cmd.Cmd):
+    """Basic CLI to interface with the world"""
+
     def __init__(self, world):
         cmd.Cmd.__init__(self)
         self.world = world
@@ -33,9 +35,6 @@ class CLI(cmd.Cmd):
         self.thread.run = self.cmdloop
         self.thread.start()
 
-    def postcmd(self, stop, string):
-        print "got here"
-
     def do_hp_set(self, inString):
         char, hp = inString.split(' ')[0], inString.split(' ')[1]
         self.world.miniManager.miniatures[char].character.charSheet['curHP'] = hp 
@@ -43,9 +42,11 @@ class CLI(cmd.Cmd):
 
     def do_quit(self, arg):
         self.thread._Thread__stop()
-        sys.exit(0)
+        taskMgr.remove("update-patterns")
 
 class MiniatureManager():
+    """Manages all miniatures in world"""
+
     def __init__(self):
         self.miniatures = {}
         
@@ -54,6 +55,8 @@ class MiniatureManager():
         
 
 class Miniature(NodePath):
+    """Base class, holds character and all overlays"""
+
     def __init__(self, characterName, characterPath, markerPath, nodeParent, arInstance):
         NodePath.__init__(self, characterName)
         self.character = Character(characterName, characterPath, markerPath, self, arInstance)
@@ -64,6 +67,8 @@ class Miniature(NodePath):
 
 
 class Character(Actor.Actor):
+    """Holds character model and information""" 
+
     def __init__(self, character, characterPath, markerPath, nodeParent, arInstance):
         self.charName = character
         
@@ -95,7 +100,12 @@ class Character(Actor.Actor):
 
 
 class World(DirectObject):
+    """The render environment"""
+
     def __init__(self):
+        self.miniManager = MiniatureManager()
+        self.cli = CLI(self)
+
         self.flipScreen = False
 
         self.tex = OpenCVTexture()
@@ -113,36 +123,9 @@ class World(DirectObject):
         #set the rendering order manually to render the card-with the webcam-image behind the scene.
         base.cam.node().getDisplayRegion(0).setSort(20)
         
-        self.miniManager = MiniatureManager()
-        
         self.ar = ARToolKit.make(base.cam, "./data/camera/camera_para.dat", 1)
         sleep(1) #some webcams are quite slow to start up so we add some safety
         taskMgr.add(self.updatePatterns, "update-patterns",-100)
-        
-        self.assignKeybindings()
-        
-        self.cli = CLI(self)
-       
-
-    def assignKeybindings(self):
-        pass
-        #self.accept('c', self.processCommand)
-
-    def popEntry(self):
-        print "popEntry"
-        entry = DirectEntry(text = "", scale=.05, command=self.processCommand, extraArgs=self, initialText="Type Something", numLines = 1, focus=1, focusInCommand=clearText)
-
-    def processCommand(self):
-        strIn = 'hello'
-        command = strIn.split(' ')[0]
-        if command == 'set_hp':
-            try:
-                charName = strIn.split(' ')[1]
-                newHP = strIn.split(' ')[2]
-                self.miniManager.miniatures[charName].character.charSheet['curHP'] = newHP
-            except:
-                print "DIDN'T WORK"
-        
 
     def updatePatterns(self, task):
         self.ar.analyze(self.tex, not self.flipScreen)
