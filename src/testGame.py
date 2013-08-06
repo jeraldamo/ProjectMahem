@@ -1,5 +1,6 @@
 #!/usr/bin/python2.6
 # -*- coding: utf-8 -*-
+from direct.directbase import DirectStart
 from Mayhem import *
 
 world = World(False)

@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
+
 """
 Mayhem.py
 """
+
 # STL Imports
 import sys
 import shelve
@@ -15,13 +17,12 @@ import importlib
 from utils import onquit
 
 # Panda3D Imports
-sys.path.append('./modules/panda3d/')
+#sys.path.append('./modules/panda3d/')
 from pandac.PandaModules import *
 from direct.gui.DirectGui import *
 from panda3d.core import NodePath
 from direct.actor import Actor
 from direct.showbase.DirectObject import DirectObject
-from direct.directbase import DirectStart
 from direct.task import Task
 
 class CLI(cmd.Cmd):
@@ -53,6 +54,7 @@ class Grid():
     def __init__(self, xLen, yLen, tileSize=5):
         self.xLen = xLen
         self.yLen = yLen
+        self.gridSize = xLen * yLen
         self.tileSize = tileSize
         self.grid = []
         for i in xrange(xLen):
@@ -92,6 +94,7 @@ class Miniature(NodePath):
     def getPossibleMoves(self):
         possibleMoves = []
         #speed = self.character.charSheet['speed']
+        # set speed to 20 for testing purposes
         speed = 20
         squares = speed / self.world.grid.tileSize
         for row in self.world.grid.grid:

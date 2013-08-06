@@ -3,7 +3,7 @@ Version 0.1: A semi-working version to push into a working version
  | Features/Goals:
  |  | - Create a clean and efficient program design
  |  | - Write a good base
- |  |
+ |  | - Create turn based game play mechanism
  | 
  | TODO:
  |  | - Add docstrings
