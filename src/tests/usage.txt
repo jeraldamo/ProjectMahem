@@ -1,0 +1,3 @@
+python <test folder>
+
+ex: python mainTests
