@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Mayhem.py
 """
@@ -47,11 +48,12 @@ class CLI(cmd.Cmd):
 class Tile():
     def __init__(self, coords):
         self.coords = coords
-
+        
 class Grid():
-    def __init__(self, xLen, yLen):
+    def __init__(self, xLen, yLen, tileSize=5):
         self.xLen = xLen
         self.yLen = yLen
+        self.tileSize = tileSize
         self.grid = []
         for i in xrange(xLen):
             tmpRow = []
@@ -79,17 +81,23 @@ class Miniature(NodePath):
                         'movement': (None, False)}
         self.reparentTo(nodeParent)
         arInstance.attachPattern(markerPath, self)
-
+        self.world = world
         self.location = (0,0)
+
+        possibleMoves = self.getPossibleMoves()
+        print len(possibleMoves)
+        for tile in possibleMoves:
+            print tile.coords
     
     def getPossibleMoves(self):
         possibleMoves = []
-        speed = self.character.charSheet['speed']
-        squares = speed / world.grid.gridSize
-        for row in world.grid.grid:
+        #speed = self.character.charSheet['speed']
+        speed = 20
+        squares = speed / self.world.grid.tileSize
+        for row in self.world.grid.grid:
             for tile in row:
                 manhattan = (tile.coords[0] - self.location[0]) + (tile.coords[1] - self.location[1])
-                if manhattan >= squares:
+                if manhattan <= squares:
                     possibleMoves.append(tile)
         return possibleMoves
 
@@ -130,9 +138,9 @@ class Character(Actor.Actor):
 class World(DirectObject):
     """The render environment"""
 
-    def __init__(self):
+    def __init__(self, cliOn):
+        self.cliOn = cliOn
         self.miniManager = MiniatureManager()
-        self.cli = CLI(self)
         self.grid = Grid(10, 10)
 
         self.flipScreen = False
@@ -155,6 +163,9 @@ class World(DirectObject):
         self.ar = ARToolKit.make(base.cam, "./data/camera/camera_para.dat", 1)
         sleep(1) #some webcams are quite slow to start up so we add some safety
         taskMgr.add(self.updatePatterns, "update-patterns",-100)
+        
+        if self.cliOn:
+            self.cli = CLI(self)
 
     def updatePatterns(self, task):
         self.ar.analyze(self.tex, not self.flipScreen)

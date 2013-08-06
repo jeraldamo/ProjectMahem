@@ -1,6 +1,8 @@
+#!/usr/bin/python2.6
+# -*- coding: utf-8 -*-
 from Mayhem import *
 
-world = World()
+world = World(False)
 world.miniManager.addMiniature(Miniature('Seebo', 
                                 './data/characters/', 
                                 './data/markers/patt.hiro', 
