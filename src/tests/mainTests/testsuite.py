@@ -54,11 +54,16 @@ def reportTests(log=None, showOnPass=True):
         failCount = 0
         
         for test in TestSuite.tests:
-            if test[2]:
+            testPass = True
+            for assertion in test[1]:
+                if not assertion['pass']:
+                    testPass = False
+                    
+            if testPass:
                 passCount += 1
             else:
                 failCount += 1
-                
+        
         if failCount == 0:
             print "%sTestsuite Passed (%s test(s) passed, %s test(s) failed)%s" %(greenColor, passCount, failCount, endColor)
             if log:
