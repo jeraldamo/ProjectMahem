@@ -51,7 +51,7 @@ class Tile():
         self.coords = coords
         
 class Grid():
-    def __init__(self, xLen, yLen, tileSize=3):
+    def __init__(self, xLen, yLen, tileSize=5):
         self.xLen = xLen
         self.yLen = yLen
         self.gridSize = xLen * yLen
