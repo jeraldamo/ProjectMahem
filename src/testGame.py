@@ -1,4 +1,4 @@
-#!/usr/bin/python2.6
+#!/usr/bin/python2
 # -*- coding: utf-8 -*-
 from direct.directbase import DirectStart
 from Mayhem import *
