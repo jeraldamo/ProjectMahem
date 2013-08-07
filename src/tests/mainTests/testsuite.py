@@ -40,7 +40,7 @@ def test(func):
 
 
 
-def reportTests(log=None):
+def reportTests(log=None, showOnPass=True):
     redColor = '\033[91m'
     greenColor = '\033[92m'
     yellowColor = '\033[93m'
@@ -48,6 +48,24 @@ def reportTests(log=None):
     endColor = '\033[0m'
     if log:
         log = open(log, 'w')
+    
+    if not showOnPass:
+        passCount = 0
+        failCount = 0
+        
+        for test in TestSuite.tests:
+            if test[2]:
+                passCount += 1
+            else:
+                failCount += 1
+                
+        if failCount == 0:
+            print "%sTestsuite Passed (%s test(s) passed, %s test(s) failed)%s" %(greenColor, passCount, failCount, endColor)
+            if log:
+                log.write("Testsuite Passed (%s test(s) passed, %s test(s) failed)\n" %(passCount, failCount))
+            
+            return 0
+    
     os.system('clear')
     for testIndex, test in enumerate(TestSuite.tests, start=1):
         print 'Test %s: %s%s%s in %s' %(testIndex, blueColor, test[0], endColor, test[3])

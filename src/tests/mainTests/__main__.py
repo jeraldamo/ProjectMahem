@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from testsuite import *
-import testGrid
+from __init__ import *
 
 reportTests()

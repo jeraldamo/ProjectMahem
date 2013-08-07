@@ -9,7 +9,7 @@ sys.path.append('../../src/modules')
 sys.path.append('../../src/tests/')
 from mainTests import *
 
-if reportTests() == 0:
+if reportTests(showOnPass=False) == 0:
     sys.exit(0)
 else:
     sys.exit(1)
