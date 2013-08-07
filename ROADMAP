@@ -1,4 +1,5 @@
-Version 0.1: A semi-working version to push into a working version
+Current:
+ Version 0.1: A semi-working version to push into a working version
  | 
  | Features/Goals:
  |  | - Create a clean and efficient program design
@@ -6,5 +7,19 @@ Version 0.1: A semi-working version to push into a working version
  |  | - Create turn based game play mechanism
  | 
  | TODO:
- |  | - Add docstrings
- |
+ |  | Clean and efficient program design:
+ |  |  | - Implement branching model
+ |  |  | - Implement unit testing model
+ |  |  | - Implement vesion numbering scheme
+ |  |
+ |  | Write a good base
+ |  |  | - Add docstrings
+ |  |
+ |  | Create turn based game play mechanism
+ |  |  |
+
+Bull Pin:
+ Version 1.0
+
+
+History
