@@ -1,5 +1,8 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
+"""
+Git hook that will run mainTests and only commit if all tests passed
+"""
 import sys
 sys.path.append('src')
 sys.path.append('src/modules')
