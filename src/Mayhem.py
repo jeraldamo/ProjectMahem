@@ -47,10 +47,14 @@ class CLI(cmd.Cmd):
         taskMgr.remove("update-patterns")
 
 class Tile():
+    """ Subsection of Grid"""
+
     def __init__(self, coords):
         self.coords = coords
         
 class Grid():
+    """The grid is the discrete layout of the world"""
+    
     def __init__(self, xLen, yLen, tileSize=5):
         self.xLen = xLen
         self.yLen = yLen
