@@ -72,10 +72,11 @@ class MiniatureManager():
 
     def __init__(self):
         self.miniatures = {}
+        self.characters = []
         
     def addMiniature(self, mini):
         self.miniatures[mini.character.charName] = mini
-        
+        self.characters.append(mini.character.charName)
 
 class Miniature(NodePath):
     """Base class, holds character and all overlays"""
@@ -148,6 +149,7 @@ class World(DirectObject):
     def __init__(self, cliOn):
         self.cliOn = cliOn
         self.miniManager = MiniatureManager()
+        self.curMini = 0
         self.grid = Grid(10, 10)
 
         self.flipScreen = False
@@ -178,13 +180,16 @@ class World(DirectObject):
         self.ar.analyze(self.tex, not self.flipScreen)
       
         # Change character pose based on HP
-        for mini in self.miniManager.miniatures.values():
-            char = mini.character
-            #char.refreshCharSheet()
-            if int(char.charSheet['curHP']) > int(char.charSheet['totalHP']) / 2:
-                char.loop('stand')
+        char = self.miniManager.miniatures[self.miniManager.characters[self.curMini]].character
+        #char.refreshCharSheet()
+        if int(char.charSheet['curHP']) > int(char.charSheet['totalHP']) / 2:
+            char.loop('stand')
 
-            elif int(char.charSheet['curHP']) > int(char.charSheet['totalHP']) / 4:
-                char.loop('kneel')    
-              
+        elif int(char.charSheet['curHP']) > int(char.charSheet['totalHP']) / 4:
+            char.loop('kneel')    
+        
+        self.curMini += 1
+        if self.curMini > (len(self.miniManager.characters) - 1):
+            self.curMini = 0
+
         return Task.cont
