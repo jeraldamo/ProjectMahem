@@ -1,0 +1,24 @@
+{
+	"folders":
+	[
+		{
+			"path": "/home/bear/Projects/Mayhem"
+		}
+	],
+	"settings":
+    {
+        "tab_size": 4
+    },
+    "build_systems":
+    [
+        {
+            "name": "Project",
+            "cmd": ["python2", "$project_path/src/testGame.py"],
+            "variants":
+            [
+            	{"cmd": ["python2", "$project_path/src/tests/mainTests"],
+            	 "name": "testProject"}
+            ]
+        }
+    ]
+}

@@ -1,0 +1,397 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"char",
+				"characters	statement"
+			],
+			[
+				"tests",
+				"mainTests"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/Mayhem.py",
+			"settings":
+			{
+				"buffer_size": 6283,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "runTests.py",
+			"settings":
+			{
+				"buffer_size": 419,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/testGame.py",
+			"settings":
+			{
+				"buffer_size": 966,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Project",
+	"command_palette":
+	{
+		"height": 306.0,
+		"selected_items":
+		[
+			[
+				"test",
+				"Build: testProject"
+			],
+			[
+				"git gra",
+				"Git: Graph All"
+			],
+			[
+				"git his",
+				"Git: Commit history"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add Current File"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"git file",
+				"Git: Show Current File"
+			],
+			[
+				"log",
+				"Git: Log Current File"
+			],
+			[
+				"buil",
+				"Build: Build"
+			],
+			[
+				"tes",
+				"Build: test"
+			],
+			[
+				"build",
+				"Build: Build"
+			],
+			[
+				"__",
+				"Snippet: if __name__ == '__main__'"
+			],
+			[
+				"git pus",
+				"Git: Push Current Branch"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"git ad",
+				"Git: Add..."
+			],
+			[
+				"git qui",
+				"Git: Quick Commit"
+			],
+			[
+				"git staus",
+				"Git: Status"
+			],
+			[
+				"git comm",
+				"Set Syntax: Git Commit Message"
+			],
+			[
+				"git co",
+				"Git: Amend Commit"
+			],
+			[
+				"gitco",
+				"Git: Commit"
+			],
+			[
+				"sni",
+				"Snippet: __magic__"
+			],
+			[
+				"git st",
+				"Git: Status"
+			],
+			[
+				"git branch",
+				"Git: Change Branch"
+			],
+			[
+				"git show",
+				"Git: Show Current File"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Add Repository"
+			],
+			[
+				"packa",
+				"Package Control: Add Repository"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: #!/usr/bin/env"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": true,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/bear/Projects/Mayhem/Mayhem.sublime-project",
+		"/home/bear/.config/sublime-text-2/Packages/User/docstring.sublime-snippet",
+		"/home/bear/.config/sublime-text-2/Packages/User/filedoc.sublime-snippet",
+		"/home/bear/Projects/Mayhem/src/Mayhem.py",
+		"/home/bear/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
+		"/home/bear/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/bear/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/bear/.config/sublime-text-2/Packages/User/python26.sublime-build",
+		"/home/bear/Projects/Mayhem/Mayhem.sublime-workspace"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"distraction"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/Mayhem.py",
+					"settings":
+					{
+						"buffer_size": 6283,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								80
+							],
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 204.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "runTests.py",
+					"settings":
+					{
+						"buffer_size": 419,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								115,
+								115
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/testGame.py",
+					"settings":
+					{
+						"buffer_size": 966,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								258,
+								258
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								80
+							],
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 112.0
+	},
+	"output.git":
+	{
+		"height": 112.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/home/bear/Projects/pythonLib/Jeraldamo/.jeraldamo_lib.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": false,
+	"side_bar_visible": true,
+	"side_bar_width": 129.0,
+	"status_bar_visible": true
+}
